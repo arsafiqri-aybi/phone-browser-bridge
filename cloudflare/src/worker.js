@@ -1,11 +1,11 @@
 import {Auth} from './auth.js';
 import {digest,json,body,token} from './security.js';
 import {catalog,instructions,validate} from './catalog.js';
-import {css,panelJs} from './ui.js';
+import {css,panelJs,guidePage,guideJs} from './ui.js';
 export class PhoneHub{
   constructor(state,env){this.state=state;this.env=env;this.pending=new Map();this.commandTail=Promise.resolve();this.authTail=Promise.resolve();this.queued=0;this.auth=new Auth(state.storage,env);state.blockConcurrencyWhile(()=>this.auth.init());}
   sockets(){return this.state.getWebSockets('phone').filter(socket=>socket.readyState===1&&socket.deserializeAttachment()?.tokenHash===this.env.PHONE_TOKEN_HASH);}
-  async status(){if(!this.sockets().length)return{device_connected:false,active:false,mode:null,relay:'cloudflare',session_duration_limit:null};const data=await this.command('phone_status',{});return{...data,device_connected:true,relay:'cloudflare',session_duration_limit:null};}
+  async status(){if(!this.sockets().length)return{device_connected:false,active:false,mode:null,relay:'cloudflare',session_duration_limit:null};try{const data=await this.command('phone_status',{});return{...data,device_connected:true,device_responding:true,relay:'cloudflare',session_duration_limit:null};}catch{return{device_connected:this.sockets().length>0,device_responding:false,ready:false,active:false,relay:'cloudflare',session_duration_limit:null,error:'Agen belum menjawab. Periksa Termux dan koneksi perangkat.'};}}
   command(name,args){
     if(this.queued>=8)return Promise.reject(new Error('Perintah masih antre. Periksa hasil sebelum mengirim lagi.'));this.queued++;
     const task=this.commandTail.then(()=>new Promise((resolve,reject)=>{
@@ -44,7 +44,7 @@ export class PhoneHub{
         if(!authorized&&!['initialize','tools/list','ping','notifications/initialized'].includes(q.method))return this.auth.challenge();
         if(q.id===undefined)return new Response(null,{status:202});
         const success=result=>json({jsonrpc:'2.0',id:q.id,result});
-        if(q.method==='initialize'){const versions=['2024-11-05','2025-03-26','2025-06-18','2025-11-25'];return success({protocolVersion:versions.includes(q.params?.protocolVersion)?q.params.protocolVersion:'2025-11-25',capabilities:{tools:{listChanged:false}},serverInfo:{name:'phone-chrome-mcp',version:'2.0.0'},instructions});}
+        if(q.method==='initialize'){const versions=['2024-11-05','2025-03-26','2025-06-18','2025-11-25'];return success({protocolVersion:versions.includes(q.params?.protocolVersion)?q.params.protocolVersion:'2025-11-25',capabilities:{tools:{listChanged:false}},serverInfo:{name:'phone-chrome-mcp',version:'2.1.0'},instructions});}
         if(q.method==='ping')return success({});
         if(q.method==='tools/list')return success({tools:catalog});
         if(q.method==='tools/call'){
@@ -68,12 +68,14 @@ export class PhoneHub{
 export default{
   async fetch(request,env){
     const url=new URL(request.url),base=env.PUBLIC_BASE_URL;
-    if(url.pathname==='/healthz')return json({ok:true,service:'phone-chrome-mcp',version:'2.0.0',browser_location:'owner_phone',device_verified:false,session_duration_limit:null});
+    if(url.pathname==='/healthz')return json({ok:true,service:'phone-chrome-mcp',version:'2.1.0',browser_location:'owner_phone',device_verified:false,session_duration_limit:null});
     if(!base||url.origin!==base)return json({error:'Host not allowed'},400);
     const origin=request.headers.get('origin');if(origin&&![base,'https://chatgpt.com'].includes(origin))return json({error:'Origin not allowed'},403);
     if(request.method==='OPTIONS')return new Response(null,{status:204,headers:{'Access-Control-Allow-Origin':origin||base,'Access-Control-Allow-Methods':'GET, POST, OPTIONS','Access-Control-Allow-Headers':'Authorization, Content-Type, MCP-Protocol-Version'}});
     let result;
-    if(url.pathname==='/style.css')result=new Response(css,{headers:{'content-type':'text/css; charset=utf-8'}});
+    if(url.pathname==='/guide')result=new Response(guidePage(),{headers:{'content-type':'text/html; charset=utf-8'}});
+    else if(url.pathname==='/guide.js')result=new Response(guideJs,{headers:{'content-type':'text/javascript; charset=utf-8'}});
+    else if(url.pathname==='/style.css')result=new Response(css,{headers:{'content-type':'text/css; charset=utf-8'}});
     else if(url.pathname==='/panel.js')result=new Response(panelJs,{headers:{'content-type':'text/javascript; charset=utf-8'}});
     else if(url.pathname==='/')result=new Response(null,{status:302,headers:{location:'/admin'}});
     else result=await env.PHONE_HUB.get(env.PHONE_HUB.idFromName('owner')).fetch(request);
@@ -82,3 +84,4 @@ export default{
     if(origin)response.headers.set('Access-Control-Allow-Origin',origin);return response;
   }
 };
+

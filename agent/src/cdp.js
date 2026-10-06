@@ -5,13 +5,18 @@ import {randomUUID} from 'node:crypto';
 export class Chrome {
   constructor({port=9222,mediaRoot}={}){this.port=port;this.mediaRoot=mediaRoot;this.pending=new Map();this.seq=0;this.version=0;}
   async connect(){
+    if(this.connecting)return this.connecting;
+    this.connecting=this.openConnection();
+    try{return await this.connecting;}finally{this.connecting=null;}
+  }
+  async openConnection(){
     if(this.ws?.readyState===1)return;
     const info=await (await fetch(`http://127.0.0.1:${this.port}/json/version`,{signal:AbortSignal.timeout(3000)})).json();
     const u=new URL(info.webSocketDebuggerUrl);if(!['127.0.0.1','localhost'].includes(u.hostname)||u.port!==String(this.port)||u.protocol!=='ws:')throw Error('Endpoint DevTools harus lokal.');
-    const ws=new WebSocket(u);this.ws=ws;
+    const ws=new WebSocket(u,{handshakeTimeout:5000});this.ws=ws;
     ws.on('message',raw=>{let m;try{m=JSON.parse(raw);}catch{return;}const p=this.pending.get(m.id);if(!p)return;this.pending.delete(m.id);clearTimeout(p.timer);m.error?p.reject(Error('Chrome menolak perintah: '+m.error.message)):p.resolve(m.result);});
-    ws.on('close',()=>{this.session=null;this.context=null;this.invalidate();for(const p of this.pending.values()){clearTimeout(p.timer);p.reject(Error('Chrome terputus; hasil tindakan belum diketahui.'));}this.pending.clear();});
-    ws.on('error',()=>{});await new Promise((resolve,reject)=>{ws.once('open',resolve);ws.once('error',reject);});
+    ws.on('close',()=>{if(this.ws!==ws)return;this.session=null;this.context=null;this.invalidate();for(const p of this.pending.values()){clearTimeout(p.timer);p.reject(Error('Chrome terputus; hasil tindakan belum diketahui.'));}this.pending.clear();});
+    ws.on('error',()=>{});await new Promise((resolve,reject)=>{ws.once('open',resolve);ws.once('error',reject);ws.once('close',()=>reject(Error('Chrome terputus saat menyambungkan.')));});
   }
   call(method,params={},sessionId){return new Promise((resolve,reject)=>{const id=++this.seq;const timer=setTimeout(()=>{this.pending.delete(id);reject(Error('DevTools timeout; periksa hasil sebelum mengulang.'));},10000);this.pending.set(id,{resolve,reject,timer});try{this.ws.send(JSON.stringify({id,method,params,...(sessionId?{sessionId}:{})}));}catch(e){clearTimeout(timer);this.pending.delete(id);reject(e);}});}
   page(method,params={}){return this.call(method,params,this.session);}
@@ -51,3 +56,4 @@ export class Chrome {
   }
 }
 export function jpegSize(b){let i=2;while(i<b.length){if(b[i++]!==255)continue;const marker=b[i++];if(marker===216||marker===217)continue;const len=b.readUInt16BE(i);if([192,193,194].includes(marker))return{height:b.readUInt16BE(i+3),width:b.readUInt16BE(i+5)};i+=len;}throw Error('Screenshot JPEG tidak valid.');}
+

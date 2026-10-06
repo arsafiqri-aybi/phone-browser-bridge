@@ -18,7 +18,7 @@ if not ANDROID.is_file() or not (TOOLS/'aapt2').is_file():
 with tempfile.TemporaryDirectory(prefix='phone-apk-') as temporary:
     out=pathlib.Path(temporary);classes=out/'classes';classes.mkdir();dex=out/'dex';dex.mkdir()
     manifest=out/'AndroidManifest.xml'
-    manifest.write_text((APP/'AndroidManifest.xml').read_text().replace('<manifest ', '<manifest package="id.privatebridge.phone" android:versionCode="2" android:versionName="2.0.0" ',1))
+    manifest.write_text((APP/'AndroidManifest.xml').read_text().replace('<manifest ', '<manifest package="id.privatebridge.phone" android:versionCode="3" android:versionName="2.1.0" ',1))
     run(TOOLS/'aapt2','compile','--dir',APP/'res','-o',out/'resources.zip')
     run(TOOLS/'aapt2','link','-I',ANDROID,'--manifest',manifest,'--min-sdk-version','30','--target-sdk-version','35','-o',out/'unsigned.apk',out/'resources.zip')
     sources=sorted(APP.glob('java/**/*.java'))
@@ -32,8 +32,9 @@ with tempfile.TemporaryDirectory(prefix='phone-apk-') as temporary:
     run(TOOLS/'zipalign','-p','-f','4',out/'unsigned.apk',out/'aligned.apk')
     KEY.parent.mkdir(parents=True,exist_ok=True)
     if not KEY.exists():run(KEYTOOL,'-genkeypair','-keystore',KEY,'-storepass','android','-keypass','android','-alias','phone-debug','-keyalg','RSA','-keysize','2048','-validity','10000','-dname','CN=Phone Browser Bridge Personal Debug')
-    target=ROOT/'dist'/'Phone_Browser_Bridge_2.0.0.apk';target.parent.mkdir(exist_ok=True)
+    target=ROOT/'dist'/'Phone_Browser_Bridge_2.1.0.apk';target.parent.mkdir(exist_ok=True)
     run(JAVA,'-jar',TOOLS/'lib'/'apksigner.jar','sign','--ks',KEY,'--ks-pass','pass:android','--key-pass','pass:android','--ks-key-alias','phone-debug','--out',target,out/'aligned.apk')
     run(JAVA,'-jar',TOOLS/'lib'/'apksigner.jar','verify','--verbose',target)
     run(TOOLS/'aapt','dump','badging',target)
     print('APK:',target)
+

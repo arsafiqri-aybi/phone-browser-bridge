@@ -1,0 +1,18 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> phone-chrome-agent@2.1.0 test
+> node --test tests/*.test.js
+
+✔ Real desktop Chrome: read, fill, publish once, tabs, screenshot, upload, pause and crash journal (372.397392ms)
+✔ Repeated disconnects recover, old commands are not replayed, stop cancels retries (28.987598ms)
+✔ Missing pong terminates half-open socket and reconnects (31.154478ms)
+✔ ADB heals only configured device and forwards again; healthy endpoint is left alone (0.640196ms)
+✔ Unavailable ADB is recoverable, absent config and shell text never select arbitrary device (0.541457ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 459.275864

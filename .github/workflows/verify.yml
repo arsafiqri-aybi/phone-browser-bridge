@@ -20,6 +20,7 @@ jobs:
       - name: Locate actual Chrome
         run: node -e "require('fs').appendFileSync(process.env.GITHUB_ENV, 'CHROME_TEST_EXECUTABLE='+require('./cloudflare/node_modules/playwright').chromium.executablePath()+'\n')"
       - run: npm test --prefix agent
+      - run: python3 scripts/test-termux-service.py
       - run: npm test --prefix cloudflare
       - run: npm audit --prefix agent --omit=dev --audit-level=high
   android-build:
@@ -37,3 +38,4 @@ jobs:
         with:
           name: CI-test-APK-different-signing-key
           path: android/app/build/outputs/apk/debug/*.apk
+
