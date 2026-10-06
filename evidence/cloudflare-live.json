@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-06T08:13:54.621Z",
+  "endpoint": "https://phone-chrome-mcp.arsafiqri-ua03.workers.dev/mcp",
+  "browser": "Chrome for Testing desktop, NOT owner Android",
+  "tests": {
+    "health": "PASS",
+    "unauthorized": "PASS",
+    "oauth_pkce_code_replay": "PASS",
+    "official_sdk": "PASS",
+    "honest_offline": "PASS",
+    "live_authenticated_socket": "PASS",
+    "live_real_chrome_and_publish_once": "PASS",
+    "live_actual_screenshot": "PASS",
+    "lab_disconnected_after_test": "PASS"
+  }
+}

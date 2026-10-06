@@ -1,0 +1,1 @@
+{"name":"phone-chrome-agent","private":true,"version":"2.0.0","type":"module","engines":{"node":">=22.9"},"scripts":{"start":"node --env-file=.env src/index.js","setup":"node scripts/setup.js","test":"node --test tests/*.test.js"},"dependencies":{"ws":"8.22.0"}}

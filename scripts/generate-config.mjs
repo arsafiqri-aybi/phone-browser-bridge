@@ -1,0 +1,10 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {token,hashPassword,digest} from '../cloudflare/src/security.js';
+const folder=process.argv[2];if(!folder)throw Error('Tentukan folder privat di luar repo.');
+const root=path.resolve(new URL('..',import.meta.url).pathname),out=path.resolve(folder);if(out===root||out.startsWith(root+path.sep))throw Error('Konfigurasi privat harus di luar repo.');
+await fs.mkdir(out,{recursive:true,mode:0o700});const password=token(),device=token();
+const values={PUBLIC_BASE_URL:'https://phone-chrome-mcp.arsafiqri-ua03.workers.dev',OWNER_PASSWORD:password,PHONE_TOKEN:device,OWNER_PASSWORD_HASH:await hashPassword(password),PHONE_TOKEN_HASH:await digest(device)};
+await fs.writeFile(path.join(out,'deployment.json'),JSON.stringify(values,null,2),{mode:0o600,flag:'wx'});
+const instructions=`# Konfigurasi pribadi Chrome Bridge v2\n\nJangan unggah berkas ini ke GitHub atau membagikannya.\n\nPanel: ${values.PUBLIC_BASE_URL}/admin\nMCP: ${values.PUBLIC_BASE_URL}/mcp\n\nPassword pemilik (login panel dan persetujuan OAuth):\n${password}\n\nToken perangkat Cloudflare (prompt kedua npm run setup di Termux):\n${device}\n\nToken APK adalah token yang BERBEDA: gunakan tombol Salin token APK di aplikasi Android.\n\nLangkah: pasang APK v2 → clone repo privat arsafiqri-aybi/phone-browser-bridge → bash install-termux.sh → pairing Wireless Debugging dan forward 9222 mengikuti docs/PASANG_ANDROID.md → Mulai kendali di APK → npm start di agent → hubungkan MCP pada akun ChatGPT yang menyediakan fitur tersebut.\n\nBerkas ini adalah konfigurasi, bukan bukti HP sudah tersambung. Panel perlu menampilkan HP tersambung dan Siap menjalankan perintah.\n`;
+await fs.writeFile(path.join(out,'Konfigurasi_Pribadi_Chrome_Bridge_2.0.0.md'),instructions,{mode:0o600,flag:'wx'});console.log('Konfigurasi dibuat dalam folder privat. Secret tidak ditampilkan.');
