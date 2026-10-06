@@ -37,5 +37,6 @@ test('Workerd MCP → authenticated socket → agent → real Chrome, and render
     await page.setViewportSize({width:390,height:844});await page.screenshot({path:path.join(output,'panel-mobile.png'),fullPage:true});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);const button=page.getByRole('button',{name:'Jeda kendali'});assert.ok((await button.boundingBox()).height>=48);await button.focus();assert.equal(await button.evaluate(e=>e===document.activeElement),true);
     assert.equal((await send('/admin/pause',{method:'POST',headers:{cookie:(await context.cookies()).map(c=>c.name+'='+c.value).join(';'),origin:base,'x-csrf-token':'bad'}})).status,403);
     await button.click();await page.getByRole('heading',{name:'Kendali sedang dijeda.'}).waitFor();assert.equal(active,false);assert.deepEqual(errors,[]);
-  }finally{await browser?.close();await sdk?.close();ws?.close();op.chrome.close();chrome.kill();await mf.dispose();await new Promise(r=>native.close(r));await new Promise(r=>fixture.close(r));await fs.rm(dir,{recursive:true,force:true});}
+  }finally{await browser?.close();await sdk?.close();ws?.close();op.chrome.close();const exited=new Promise(r=>chrome.once('close',r));chrome.kill();await exited;await mf.dispose();await new Promise(r=>native.close(r));await new Promise(r=>fixture.close(r));await fs.rm(dir,{recursive:true,force:true,maxRetries:5,retryDelay:100});}
 });
+

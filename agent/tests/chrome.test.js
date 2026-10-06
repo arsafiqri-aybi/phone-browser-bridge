@@ -33,5 +33,6 @@ test('Real desktop Chrome: read, fill, publish once, tabs, screenshot, upload, p
     await assert.rejects(()=>run('phone_open_url',{url:'https://chatgpt.com/'}),/dilindungi/);
     const restarted=new Operator(op.config);await restarted.init();assert.equal((await restarted.run('phone_click',{ref:button.ref,action_id:id})).duplicate,true);
     await run('phone_handoff',{reason:'Owner pause'});assert.equal((await run('phone_status')).active,false);await assert.rejects(()=>run('chrome_evaluate',{expression:'1+1'}),/dijeda/);
-  }finally{op.chrome.close();child.kill();await new Promise(r=>native.close(r));await new Promise(r=>fixture.close(r));await fs.rm(dir,{recursive:true,force:true});}
+  }finally{op.chrome.close();const exited=new Promise(r=>child.once('close',r));child.kill();await exited;await new Promise(r=>native.close(r));await new Promise(r=>fixture.close(r));await fs.rm(dir,{recursive:true,force:true,maxRetries:5,retryDelay:100});}
 });
+

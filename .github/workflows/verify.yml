@@ -32,10 +32,12 @@ jobs:
           distribution: temurin
           java-version: '17'
       - uses: android-actions/setup-android@v3
-      - run: chmod +x android/gradlew && cd android && ./gradlew --no-daemon assembleDebug
+        with:
+          packages: 'platform-tools platforms;android-35 build-tools;35.0.0'
+      - run: python3 scripts/build-apk.py
       - run: mkdir -p /tmp/phone-tests && javac -d /tmp/phone-tests android/app/src/main/java/id/privatebridge/phone/LocalHttp.java android/tests/LocalHttpTest.java && java -cp /tmp/phone-tests LocalHttpTest
       - uses: actions/upload-artifact@v4
         with:
           name: CI-test-APK-different-signing-key
-          path: android/app/build/outputs/apk/debug/*.apk
+          path: dist/Phone_Browser_Bridge_2.1.0.apk
 
