@@ -1,0 +1,6 @@
+pluginManagement { repositories { maven { url 'https://dl.google.com/dl/android/maven2/' }; mavenCentral(); gradlePluginPortal() } }
+dependencyResolutionManagement { repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS); repositories { maven { url 'https://dl.google.com/dl/android/maven2/' }; mavenCentral() } }
+rootProject.name = 'PhoneBrowserBridge'
+include ':app', ':libadb', ':spake2'
+project(':libadb').projectDir = file('third-party/libadb')
+project(':spake2').projectDir = file('third-party/spake2')

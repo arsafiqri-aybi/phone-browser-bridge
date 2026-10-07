@@ -1,0 +1,15 @@
+# Izin, keamanan dan batas hasil
+
+Wireless Debugging/ADB memberi hak lebih luas daripada browser. Allowlist APK membatasi perangkat lunak ini, bukan mempersempit grant ADB Android. Jangan pair ke perangkat yang tidak diotorisasi. Key privat tidak dibackup/didistribusikan; jika tak lagi dipercaya, cabut key di Settings dan credential perangkat di panel.
+
+Overlay adalah izin terpisah dan manual. Tidak ada Accessibility/MediaProjection permission atau fallback diam-diam. Popup tidak meniru dialog sistem atau mengklik izin. Layar keamanan dapat menyembunyikannya. Background terlihat melalui notifikasi; Stop dan force-stop dihormati. Lock state tidak dibypass. Chrome profil asli dapat berisi sesi login: tidak ada export cookies, password, general evaluate, file read atau shell tool.
+
+Threat model dan kontrol: client tanpa auth/scope → hash credentials + authorisasi setiap endpoint/tool; device palsu → bearer unik + owner/device binding; replay enrollment → one-use expiry; URL/script injection → allowlisted methods/validated URL/ref + data sebagai JSON literal; stale document/generation → document ID/expiry/origin + connection generation; duplicate/ambiguous mutation → durable receipts; unbounded resource → ukuran/queue/deadline/rate limits; cookie CSRF/XSS → HttpOnly/SameSite/secure cookie, exact Origin, CSP nonce, DOM textContent; key leak → Keystore encryption, no backup, redacted metadata.
+
+Untuk click/type, tool mewajibkan consent true tetapi pengguna/client tetap harus memberi izin yang sesuai tindakan nyata: mengirim, membeli, menghapus, mengubah akun tidak otomatis diotorisasi oleh flag. Halaman tidak boleh mengubah pemilihan perangkat atau izin. Input password ditolak. Tab ChatGPT pengendali dilindungi. Navigasi/open juga dapat mengubah state pada website; jangan retry UNKNOWN dengan ID baru.
+
+Findings diperbaiki selama pembangunan: pure Java SPAKE key mismatch/logging, rand pada upstream C, JNI double-free failure, wait stream tanpa deadline, OAuth insert schema mismatch, penutupan socket tanpa ack, dependency sharp advisory, escaping canonical JSON, stale queued generation, dan expiry/rotasi credentials. Test lokal membuktikan kontrol yang tercantum dalam evidence; belum merupakan audit pentest lengkap.
+
+Temuan/batas terbuka: perangkat Android 12 tidak tersedia, self-device NSD/pin model/Chrome mobile/Doze/update belum dibuktikan; APK debug bukan release; targetSdk 32 bukan store-ready policy; client ChatGPT/Codex dan live Cloudflare belum diuji; dua fixture backend bukan dua ponsel; soak 8–24 jam belum dijalankan. Library crypto/ADB upstream belum diaudit. Tidak ada klaim Play Protect, Play Store atau sertifikasi keamanan.
+
+Diagnosis default hanya metadata. Jangan kirim isi halaman, screenshot login, URLs sensitif, private keys atau bearer tokens sebagai evidence. Untuk bukti gunakan example.com atau halaman test non-sensitif. Retensi journal tombstones permanen dibatasi kapasitas; page/screenshot tidak disimpan di server sebagai receipts. Consent OAuth menampilkan client ID serta scopes dan device selection; UI pemilik harus dipakai hanya pada HTTPS instalasi Anda sendiri.

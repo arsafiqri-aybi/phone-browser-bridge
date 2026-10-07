@@ -1,0 +1,124 @@
+{
+  "package": "Phone_Browser_Codex_Prompt_Pack",
+  "briefVersion": "1.0",
+  "createdDate": "2026-10-07",
+  "type": "instruction-package-not-built-app",
+  "files": [
+    {
+      "path": "00_MULAI_DI_SINI.md",
+      "bytes": 2234,
+      "sha256": "30dd88e3ba6a20252697d38500e60ae96cdb91d5abb0b0da1982a0a9d09f7682"
+    },
+    {
+      "path": "01_PROMPT_UTAMA_CODEX.md",
+      "bytes": 6419,
+      "sha256": "ec0ef7f5c680e57b68abfd248b94234a9484e88596283c5d6daf6cd67157a8ec"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 2037,
+      "sha256": "03c5f0e2944ad8fcda6f4deebb029c5a14fbcfda64695a012628d81b05c5f5eb"
+    },
+    {
+      "path": "PROMPT_KIRIM_KE_CODEX.txt",
+      "bytes": 1347,
+      "sha256": "3e5936966343469eba48f5eedfefce5e8017887279901da3abb6cd355c3da9c0"
+    },
+    {
+      "path": "context/01_TEMUAN_DAN_PENAFSIRAN.md",
+      "bytes": 3426,
+      "sha256": "248f2d92e0167e9558d8ef2b509cf638954a3ef62cd62e94591e02e8c6eeb7d6"
+    },
+    {
+      "path": "context/LAPORAN_ASLI_STRESS_TEST.md",
+      "bytes": 10257,
+      "sha256": "992dd445e8f8d1b9cb68ca12a7d59110c471984e0d8c77422b8b57ee4c504f4c"
+    },
+    {
+      "path": "sources/01_RUJUKAN_PRIMER_DAN_BATAS.md",
+      "bytes": 2135,
+      "sha256": "ff229f13919b5091202f1ad86170f6d5f9d038a381143957ce2e6b9110dc3ca4"
+    },
+    {
+      "path": "spec/01_KEBUTUHAN_PEMILIK.md",
+      "bytes": 2554,
+      "sha256": "78fa1da677de5baf992b614ec2aac6bee44f423f0455eb3acb60ba0a08b8816f"
+    },
+    {
+      "path": "spec/02_ARSITEKTUR_DAN_PROTOKOL.md",
+      "bytes": 4164,
+      "sha256": "ffed2e92f5e95f36203df6cf7510a0ff60d27f463bef1b3685f40e76aaa69ff9"
+    },
+    {
+      "path": "spec/03_ANDROID_PAIRING_BACKGROUND_OVERLAY.md",
+      "bytes": 4442,
+      "sha256": "7d843c296c8be9c3910153786be60dd2961473fce4bb622a90df7c74bade94f8"
+    },
+    {
+      "path": "spec/04_CHROME_DAN_SCREENSHOT.md",
+      "bytes": 2695,
+      "sha256": "b884cc1a1d50cd3b97ef721767036c826ca4037382681fcef2b7025dfe5459f1"
+    },
+    {
+      "path": "spec/05_CLOUDFLARE_MULTI_DEVICE.md",
+      "bytes": 3105,
+      "sha256": "d1167df609659d833d0b5f96f4349cf7799f154819fd5c502deede5af160f17d"
+    },
+    {
+      "path": "spec/06_KEAMANAN_DAN_PRIVASI.md",
+      "bytes": 2566,
+      "sha256": "2a82b8b5284b20af7445ede7fb7c6c65a36a9282408181d9385ba5602d75ec1b"
+    },
+    {
+      "path": "templates/PROJECT_STATE.md",
+      "bytes": 762,
+      "sha256": "76dd657624fc4c09310bede685ac0154d4f8dd72979a6852a458cddd515b2053"
+    },
+    {
+      "path": "templates/evidence.example.json",
+      "bytes": 589,
+      "sha256": "7a1c93cd13a4e9e5f8c1ff1039caacefa1d6381bbd143ba71adf654ec57da3d0"
+    },
+    {
+      "path": "templates/installation.example.json",
+      "bytes": 561,
+      "sha256": "90e39145a9e52d2182dea706bf2230dc05efd9fba6cc2c34003194a7762204c6"
+    },
+    {
+      "path": "tools/verify_pack.py",
+      "bytes": 1646,
+      "sha256": "1fec398f253ab69d88d1aec984dd57ba479ef40fe25865054e48da7d5d2e05ca"
+    },
+    {
+      "path": "verification/01_ACCEPTANCE_GATES.md",
+      "bytes": 3652,
+      "sha256": "06392cfc3e69c9f1d57bd822eb81f52fa1e6f946a884c0d892d7379e609d21ec"
+    },
+    {
+      "path": "verification/02_SKENARIO_UJI.md",
+      "bytes": 3202,
+      "sha256": "bbe05d1a15fbc7568b894ab53cd9fc02276bb9fd5e16b3a2e4ba68ac94dbec80"
+    },
+    {
+      "path": "verification/03_FORMAT_BUKTI.md",
+      "bytes": 1394,
+      "sha256": "c6ccd981c496c48db67ae4267b65637cdbadf0e62f183d9904890739764e12c8"
+    },
+    {
+      "path": "workflow/01_URUTAN_EKSEKUSI.md",
+      "bytes": 2842,
+      "sha256": "eda43337e517f68f3c50f9cdba2004db9cf530d9b0d3c59de4fce943efb55203"
+    },
+    {
+      "path": "workflow/02_PROMPTING_SCALE_GOVERNOR.md",
+      "bytes": 2416,
+      "sha256": "431ecf7093995a7fefdf2a0828411ce1b1cb94756168834c01ecdde70d517b27"
+    },
+    {
+      "path": "workflow/03_HASIL_DAN_HANDOFF.md",
+      "bytes": 2730,
+      "sha256": "83374929203684800fffda3058c601c07bd2498743dda0dab2012fc71110e93c"
+    }
+  ],
+  "manifestNote": "This file is excluded from its own hash list; hashes check integrity, not publisher authenticity."
+}

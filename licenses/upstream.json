@@ -1,0 +1,17 @@
+[
+  {
+    "dependency": "libadb",
+    "sourceArchiveSha256": "8cdb9b909991ab96da211b293175357345c9d727a22221f36b8d573da7bb1de8",
+    "version": "3.1.1"
+  },
+  {
+    "dependency": "spake2",
+    "sourceArchiveSha256": "c3f46fe17d5078613ab319d431fcb7a03b88b64d7cd377f6c0ed14f925053e53",
+    "version": "2.2.1"
+  },
+  {
+    "dependency": "spake2-c",
+    "commit": "0d15933e5ba3e662cb01245a7ac0dc9fca3eac31",
+    "sourceArchiveSha256": "0f1ae5da428e4f8ddea49e0e33dcfe07d2ac2114443793b8508bdc4dd48e1eec"
+  }
+]

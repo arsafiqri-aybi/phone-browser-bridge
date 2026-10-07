@@ -1,2 +1,0 @@
-LocalHttp native parser: 10 checks passed.
-Executed using Java17 against actual v2 LocalHttp.java.

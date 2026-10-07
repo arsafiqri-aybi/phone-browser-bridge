@@ -1,9 +1,0 @@
-✔ Workerd MCP → authenticated socket → agent → real Chrome, and rendered mobile/desktop panel (6727.324911ms)
-ℹ tests 1
-ℹ suites 0
-ℹ pass 1
-ℹ fail 0
-ℹ cancelled 0
-ℹ skipped 0
-ℹ todo 0
-ℹ duration_ms 11909.773378

@@ -1,0 +1,268 @@
+{
+  "generatedAtUtc": "2026-10-07T03:27:13.330496+00:00",
+  "androidTests": [
+    {
+      "suite": "id.phonebridge.ProtocolTest",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.muntashirakon.adb.AndroidPubkeyTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "nativeExchangeCount": 192,
+  "backendTestCount": 12,
+  "gates": [
+    {
+      "schemaVersion": 1,
+      "contractVersion": "1.0",
+      "gateId": "G0",
+      "status": "PASS",
+      "startedAtUtc": "2026-10-07T03:27:13.330496+00:00",
+      "environment": {
+        "physicalDevice": false,
+        "androidVersion": null,
+        "appVersion": "0.1.0",
+        "mcpClient": "@modelcontextprotocol/sdk 1.32.1 local harness"
+      },
+      "buildDigest": "983e562f627a779cf4b8dabc0c055f142513e19eba63a0060880257be1aee96b",
+      "sourceDigest": "2b92c9e6bdd6d579501e465103378e5474ba663d7061446074ad004de27ffb93",
+      "expected": "Source clean build and verified debug APK",
+      "observed": "PASS",
+      "limitations": [
+        "Not owner release signing; no Android physical tests"
+      ],
+      "artifacts": [
+        "evidence/final-fresh-android-build.log",
+        "dist/android/debug-signer.txt",
+        "dist/android/debug-sha256.txt"
+      ],
+      "nextAction": null
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "1.0",
+      "gateId": "G1",
+      "status": "NOT_RUN",
+      "startedAtUtc": null,
+      "environment": {
+        "physicalDevice": false,
+        "androidVersion": null,
+        "appVersion": "0.1.0",
+        "mcpClient": "@modelcontextprotocol/sdk 1.32.1 local harness"
+      },
+      "buildDigest": "983e562f627a779cf4b8dabc0c055f142513e19eba63a0060880257be1aee96b",
+      "sourceDigest": "2b92c9e6bdd6d579501e465103378e5474ba663d7061446074ad004de27ffb93",
+      "expected": "Embedded pairing, self discovery, dynamic reconnect Android 12",
+      "observed": "NOT_RUN",
+      "limitations": [
+        "No physical device connection"
+      ],
+      "artifacts": [
+        "evidence/VERIFICATION.md"
+      ],
+      "nextAction": "Run owner-authorized physical/device/deployment checks"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "1.0",
+      "gateId": "G2",
+      "status": "NOT_RUN",
+      "startedAtUtc": null,
+      "environment": {
+        "physicalDevice": false,
+        "androidVersion": null,
+        "appVersion": "0.1.0",
+        "mcpClient": "@modelcontextprotocol/sdk 1.32.1 local harness"
+      },
+      "buildDigest": "983e562f627a779cf4b8dabc0c055f142513e19eba63a0060880257be1aee96b",
+      "sourceDigest": "2b92c9e6bdd6d579501e465103378e5474ba663d7061446074ad004de27ffb93",
+      "expected": "Chrome Android to target MCP client with valid image",
+      "observed": "NOT_RUN",
+      "limitations": [
+        "Only local SDK harness executed"
+      ],
+      "artifacts": [
+        "evidence/VERIFICATION.md"
+      ],
+      "nextAction": "Run owner-authorized physical/device/deployment checks"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "1.0",
+      "gateId": "G3",
+      "status": "NOT_RUN",
+      "startedAtUtc": null,
+      "environment": {
+        "physicalDevice": false,
+        "androidVersion": null,
+        "appVersion": "0.1.0",
+        "mcpClient": "@modelcontextprotocol/sdk 1.32.1 local harness"
+      },
+      "buildDigest": "983e562f627a779cf4b8dabc0c055f142513e19eba63a0060880257be1aee96b",
+      "sourceDigest": "2b92c9e6bdd6d579501e465103378e5474ba663d7061446074ad004de27ffb93",
+      "expected": "Overlay permission, drag, collapse, close, denied case",
+      "observed": "NOT_RUN",
+      "limitations": [
+        "Physical Android unavailable"
+      ],
+      "artifacts": [
+        "evidence/VERIFICATION.md"
+      ],
+      "nextAction": "Run owner-authorized physical/device/deployment checks"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "1.0",
+      "gateId": "G4",
+      "status": "NOT_RUN",
+      "startedAtUtc": null,
+      "environment": {
+        "physicalDevice": false,
+        "androidVersion": null,
+        "appVersion": "0.1.0",
+        "mcpClient": "@modelcontextprotocol/sdk 1.32.1 local harness"
+      },
+      "buildDigest": "983e562f627a779cf4b8dabc0c055f142513e19eba63a0060880257be1aee96b",
+      "sourceDigest": "2b92c9e6bdd6d579501e465103378e5474ba663d7061446074ad004de27ffb93",
+      "expected": "Lifecycle, update, no helper APK",
+      "observed": "NOT_RUN",
+      "limitations": [
+        "Physical Android and owner release signing unavailable"
+      ],
+      "artifacts": [
+        "evidence/VERIFICATION.md"
+      ],
+      "nextAction": "Run owner-authorized physical/device/deployment checks"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "1.0",
+      "gateId": "G5",
+      "status": "NOT_RUN",
+      "startedAtUtc": null,
+      "environment": {
+        "physicalDevice": false,
+        "androidVersion": null,
+        "appVersion": "0.1.0",
+        "mcpClient": "@modelcontextprotocol/sdk 1.32.1 local harness"
+      },
+      "buildDigest": "983e562f627a779cf4b8dabc0c055f142513e19eba63a0060880257be1aee96b",
+      "sourceDigest": "2b92c9e6bdd6d579501e465103378e5474ba663d7061446074ad004de27ffb93",
+      "expected": "60 minute physical mixed/background recovery",
+      "observed": "NOT_RUN",
+      "limitations": [
+        "No physical device; 8\u201324h also unrun"
+      ],
+      "artifacts": [
+        "evidence/VERIFICATION.md"
+      ],
+      "nextAction": "Run owner-authorized physical/device/deployment checks"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "1.0",
+      "gateId": "G6",
+      "status": "NOT_RUN",
+      "startedAtUtc": null,
+      "environment": {
+        "physicalDevice": false,
+        "androidVersion": null,
+        "appVersion": "0.1.0",
+        "mcpClient": "@modelcontextprotocol/sdk 1.32.1 local harness"
+      },
+      "buildDigest": "983e562f627a779cf4b8dabc0c055f142513e19eba63a0060880257be1aee96b",
+      "sourceDigest": "2b92c9e6bdd6d579501e465103378e5474ba663d7061446074ad004de27ffb93",
+      "expected": "Two physical devices isolation/replay/revocation",
+      "observed": "NOT_RUN",
+      "limitations": [
+        "Two simulated device connections tested, not phones"
+      ],
+      "artifacts": [
+        "evidence/VERIFICATION.md"
+      ],
+      "nextAction": "Run owner-authorized physical/device/deployment checks"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "1.0",
+      "gateId": "G7",
+      "status": "UNCERTAIN",
+      "startedAtUtc": "2026-10-07T03:27:13.330496+00:00",
+      "environment": {
+        "physicalDevice": false,
+        "androidVersion": null,
+        "appVersion": "0.1.0",
+        "mcpClient": "@modelcontextprotocol/sdk 1.32.1 local harness"
+      },
+      "buildDigest": "983e562f627a779cf4b8dabc0c055f142513e19eba63a0060880257be1aee96b",
+      "sourceDigest": "2b92c9e6bdd6d579501e465103378e5474ba663d7061446074ad004de27ffb93",
+      "expected": "Threat model, controls and security validation",
+      "observed": "UNCERTAIN",
+      "limitations": [
+        "No independent crypto/pentest audit or physical trust checks"
+      ],
+      "artifacts": [
+        "evidence/VERIFICATION.md"
+      ],
+      "nextAction": "Run owner-authorized physical/device/deployment checks"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "1.0",
+      "gateId": "G8",
+      "status": "NOT_RUN",
+      "startedAtUtc": null,
+      "environment": {
+        "physicalDevice": false,
+        "androidVersion": null,
+        "appVersion": "0.1.0",
+        "mcpClient": "@modelcontextprotocol/sdk 1.32.1 local harness"
+      },
+      "buildDigest": "983e562f627a779cf4b8dabc0c055f142513e19eba63a0060880257be1aee96b",
+      "sourceDigest": "2b92c9e6bdd6d579501e465103378e5474ba663d7061446074ad004de27ffb93",
+      "expected": "Fresh owner account deployment and client onboarding",
+      "observed": "NOT_RUN",
+      "limitations": [
+        "No usable Cloudflare deployment bindings; dry-run only"
+      ],
+      "artifacts": [
+        "evidence/VERIFICATION.md"
+      ],
+      "nextAction": "Run owner-authorized physical/device/deployment checks"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "1.0",
+      "gateId": "G9",
+      "status": "PASS",
+      "startedAtUtc": "2026-10-07T03:28:45.633270+00:00",
+      "environment": {
+        "physicalDevice": false,
+        "androidVersion": null,
+        "appVersion": "0.1.0",
+        "mcpClient": "@modelcontextprotocol/sdk 1.32.1 local harness"
+      },
+      "buildDigest": "983e562f627a779cf4b8dabc0c055f142513e19eba63a0060880257be1aee96b",
+      "sourceDigest": "2b92c9e6bdd6d579501e465103378e5474ba663d7061446074ad004de27ffb93",
+      "expected": "Artifact ZIP integrity and fresh unzip build",
+      "observed": "ZIP integrity and manifest hashes verified. Fresh extraction rebuilt actual debug APK and worker bundle; all 12 local backend tests passed.",
+      "limitations": [
+        "No live account deployment, target client onboarding or physical Android install implied"
+      ],
+      "artifacts": [
+        "evidence/fresh-unzip-build.log",
+        "evidence/fresh-unzip-backend-tests.log",
+        "manifest.json",
+        "evidence/final-fresh-android-build.log"
+      ],
+      "nextAction": null
+    }
+  ]
+}

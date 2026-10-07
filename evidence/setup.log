@@ -1,0 +1,143 @@
+Pinned toolchains ready; activation: /workspace/toolchains/activate.sh
+
+added 134 packages in 2s
+Local credentials present; values are not printed. This file is ignored and excluded from distribution.
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.9/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :app
+Unable to initialize metrics, ensure /home/agent/.android is writable, details: /home/agent/.android/analytics.settings (No such file or directory)
+
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :libadb:preBuild UP-TO-DATE
+> Task :libadb:preDebugBuild UP-TO-DATE
+> Task :libadb:writeDebugAarMetadata UP-TO-DATE
+> Task :spake2:preBuild UP-TO-DATE
+> Task :spake2:preDebugBuild UP-TO-DATE
+> Task :spake2:writeDebugAarMetadata UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :libadb:generateDebugResValues UP-TO-DATE
+> Task :libadb:generateDebugResources UP-TO-DATE
+> Task :libadb:packageDebugResources UP-TO-DATE
+> Task :spake2:generateDebugResValues UP-TO-DATE
+> Task :spake2:generateDebugResources UP-TO-DATE
+> Task :spake2:packageDebugResources UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :libadb:extractDeepLinksDebug UP-TO-DATE
+> Task :libadb:processDebugManifest UP-TO-DATE
+> Task :spake2:extractDeepLinksDebug UP-TO-DATE
+> Task :spake2:processDebugManifest UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :libadb:compileDebugLibraryResources UP-TO-DATE
+> Task :libadb:parseDebugLocalResources UP-TO-DATE
+> Task :libadb:generateDebugRFile UP-TO-DATE
+> Task :spake2:compileDebugLibraryResources UP-TO-DATE
+> Task :spake2:parseDebugLocalResources UP-TO-DATE
+> Task :spake2:generateDebugRFile UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :libadb:javaPreCompileDebug UP-TO-DATE
+> Task :spake2:javaPreCompileDebug UP-TO-DATE
+> Task :spake2:compileDebugJavaWithJavac UP-TO-DATE
+> Task :spake2:bundleLibCompileToJarDebug UP-TO-DATE
+
+> Task :libadb:compileDebugJavaWithJavac
+Note: /workspace/phone-browser-bridge/source/android/third-party/libadb/src/main/java/io/github/muntashirakon/adb/AdbConnection.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :libadb:mergeDebugShaders UP-TO-DATE
+> Task :libadb:compileDebugShaders NO-SOURCE
+> Task :libadb:generateDebugAssets UP-TO-DATE
+> Task :libadb:packageDebugAssets UP-TO-DATE
+> Task :spake2:mergeDebugShaders UP-TO-DATE
+> Task :spake2:compileDebugShaders NO-SOURCE
+> Task :spake2:generateDebugAssets UP-TO-DATE
+> Task :spake2:packageDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :libadb:bundleLibCompileToJarDebug
+> Task :libadb:bundleLibRuntimeToJarDebug
+> Task :app:compileDebugJavaWithJavac
+> Task :spake2:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:dexBuilderDebug
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :libadb:processDebugJavaRes NO-SOURCE
+> Task :spake2:processDebugJavaRes NO-SOURCE
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :spake2:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :libadb:bundleLibRuntimeToDirDebug
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :libadb:mergeDebugJniLibFolders UP-TO-DATE
+> Task :libadb:mergeDebugNativeLibs NO-SOURCE
+> Task :libadb:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :spake2:configureCMakeDebug[arm64-v8a]
+> Task :app:mergeProjectDexDebug
+> Task :spake2:buildCMakeDebug[arm64-v8a]
+> Task :app:mergeDebugGlobalSynthetics UP-TO-DATE
+> Task :spake2:configureCMakeDebug[armeabi-v7a]
+> Task :app:mergeLibDexDebug
+> Task :spake2:buildCMakeDebug[armeabi-v7a]
+> Task :spake2:configureCMakeDebug[x86_64]
+> Task :spake2:buildCMakeDebug[x86_64]
+> Task :spake2:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :spake2:mergeDebugNativeLibs
+> Task :app:bundleDebugClassesToRuntimeJar
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:bundleDebugClassesToCompileJar
+> Task :spake2:copyDebugJniLibsProjectOnly
+> Task :app:javaPreCompileDebugUnitTest UP-TO-DATE
+> Task :app:mergeDebugNativeLibs
+> Task :app:compileDebugUnitTestJavaWithJavac
+> Task :app:processDebugUnitTestJavaRes NO-SOURCE
+> Task :app:stripDebugDebugSymbols
+> Task :app:testDebugUnitTest
+> Task :libadb:preDebugUnitTestBuild UP-TO-DATE
+> Task :libadb:generateDebugUnitTestStubRFile UP-TO-DATE
+> Task :libadb:javaPreCompileDebugUnitTest UP-TO-DATE
+> Task :libadb:compileDebugUnitTestJavaWithJavac UP-TO-DATE
+> Task :libadb:processDebugUnitTestJavaRes NO-SOURCE
+> Task :libadb:testDebugUnitTest
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect UP-TO-DATE
+> Task :app:assembleDebug
+
+BUILD SUCCESSFUL in 12s
+86 actionable tasks: 24 executed, 62 up-to-date
+
+> phone-browser-bridge-cloudflare@0.1.0 build
+> wrangler deploy --dry-run --outdir ../../dist/cloudflare
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mProxy environment variables detected. We'll use your proxy for fetch requests.[0m
+
+
+
+ ⛅️ wrangler 4.148.0
+────────────────────
+Total Upload: 45.93 KiB / gzip: 12.67 KiB
+Your Worker has access to the following bindings:
+Binding                                                               Resource                  
+env.REGISTRY (Registry)                                               Durable Object            
+env.DEVICES (DeviceRelay)                                             Durable Object            
+env.INSTALLATION_ID ("replace-with-your-random-installation...")      Environment Variable      
+
+--dry-run: exiting now.

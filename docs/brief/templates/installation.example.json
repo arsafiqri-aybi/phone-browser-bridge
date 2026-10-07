@@ -1,0 +1,12 @@
+{
+  "_note": "Contoh spesifikasi input saja. Engineer harus membuat schema dan config yang cocok implementasinya; ini bukan config runnable.",
+  "installationAlias": "ISI_NAMA_INSTALASI_BARU",
+  "mcpBaseUrl": "ISI_ENDPOINT_HTTPS_MILIK_PEMILIK",
+  "deviceAlias": "ISI_NAMA_PERANGKAT",
+  "targetAndroidVersion": 12,
+  "credentialStorage": "Use secret manager or protected device storage; never paste private credentials here",
+  "manualFirstPairingRequired": true,
+  "dynamicAdbDiscoveryRequired": true,
+  "separateTermuxRequired": false,
+  "iosInScope": false
+}

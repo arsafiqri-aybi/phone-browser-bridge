@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "contractVersion": "1.0",
+  "gateId": "G1",
+  "status": "NOT_RUN",
+  "startedAtUtc": null,
+  "durationSeconds": null,
+  "environment": {
+    "physicalDevice": false,
+    "androidVersion": null,
+    "chromeVersion": null,
+    "appVersion": null,
+    "commit": null,
+    "mcpClient": null
+  },
+  "procedure": [],
+  "expected": "Embedded pairing dan dynamic reconnect pada Android 12 fisik",
+  "observed": null,
+  "artifacts": [],
+  "limitations": [
+    "Template kosong; bukan hasil pengujian"
+  ],
+  "nextAction": "Jalankan gate pada perangkat yang diotorisasi"
+}

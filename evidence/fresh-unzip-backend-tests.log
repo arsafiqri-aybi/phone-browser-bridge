@@ -1,0 +1,21 @@
+▶ local Worker with real Durable Objects and official MCP client
+  ✔ MCP initialize/list, unauthenticated endpoints, CSRF and enrollment replay (57.730159ms)
+  ✔ explicit offline target and isolated device scope (140.981219ms)
+  ✔ device credential rotation preserves identity and invalidates previous credential (21.69997ms)
+  ✔ durable duplicate mutation, conflict and lost acknowledgement (167.446095ms)
+  ✔ capture stall does not block status or independent browser read; valid image content (407.067398ms)
+  ✔ revocation closes one device and prevents its reconnect, leaves other device available (75.311785ms)
+  ✔ refresh tokens cannot control devices, rotate on use, and owner can revoke client grants (30.028392ms)
+✔ local Worker with real Durable Objects and official MCP client (1169.058347ms)
+✔ scope binds owner, device and revocation (1.185489ms)
+✔ method, URL, schema and action consent validation (0.789742ms)
+✔ digest stable across property order, different for different actions (8.532368ms)
+✔ cross origin denied and body streaming capped (23.327419ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1373.63301
